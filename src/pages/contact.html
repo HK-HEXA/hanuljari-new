@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>문의 | 하늘자리</title>
+    <script type="module" src="/src/scripts/main.js"></script>
+  </head>
+  <body>
+    <div data-header></div>
+    <main id="main" class="container section">
+      <h1>문의</h1>
+      <p class="lead">24시간 상담이 가능합니다. 아래 양식으로 남겨주세요.</p>
+      <form id="contact-form" class="card" aria-describedby="contact-note">
+        <div class="grid cols-2">
+          <label>
+            성함
+            <input type="text" name="name" required placeholder="이름" />
+          </label>
+          <label>
+            연락처
+            <input type="tel" name="phone" required placeholder="010-0000-0000" />
+          </label>
+        </div>
+        <label>
+          문의유형
+          <select name="type">
+            <option>후불제상조</option>
+            <option>납골당</option>
+            <option>공원묘지</option>
+            <option>수목장</option>
+            <option>이장/개장</option>
+            <option>묘지조성</option>
+            <option>장례용품</option>
+          </select>
+        </label>
+        <label>
+          내용
+          <textarea name="message" rows="5" placeholder="문의 내용을 적어주세요" required></textarea>
+        </label>
+        <p id="contact-note" class="muted">개인정보는 문의 응대 목적 외로 이용하지 않습니다.</p>
+        <button class="btn primary" type="submit">문의 보내기</button>
+      </form>
+    </main>
+    <div data-cta></div>
+    <div data-footer></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contact-form')
+        form?.addEventListener('submit', (e) => {
+          e.preventDefault()
+          const data = Object.fromEntries(new FormData(form))
+          alert('문의가 접수되었습니다. 빠르게 연락드리겠습니다.\n' + JSON.stringify(data, null, 2))
+          form.reset()
+        })
+      })
+    </script>
+  </body>
+</html>

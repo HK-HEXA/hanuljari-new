@@ -1,0 +1,21 @@
+# Node / tooling
+node_modules/
+dist/
+.vite/
+.eslintrc.cjs
+.eslintcache
+*.log
+
+# Editor
+.vscode/
+.history/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / cache
+.env
+.env.*
+.cache/
+tmp/
